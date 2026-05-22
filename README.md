@@ -70,3 +70,7 @@ In [tsp.py](tsp.py):
 | pygame | 2.5.2 | Real-time visualization |
 | numpy | 1.26.4 | Probability calculations |
 | matplotlib | 3.8.4 | Chart rendering |
+
+
+## Resources
+From FIAP
