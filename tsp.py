@@ -64,6 +64,12 @@ clock = pygame.time.Clock()
 generation_counter = itertools.count(start=1)  # Start the counter at 1
 
 
+def tournament_selection(population, population_fitness, k=5):
+    candidates_idx = random.sample(range(len(population)), k)
+    best_idx = min(candidates_idx, key=lambda i: population_fitness[i])
+    return population[best_idx]
+
+
 # Create Initial Population
 # TODO:- use some heuristic like Nearest Neighbour our Convex Hull to initialize
 population = generate_random_population(cities_locations, POPULATION_SIZE)
@@ -118,9 +124,14 @@ while running:
         probability = 1 / np.array(population_fitness)
         parent1, parent2 = random.choices(population, weights=probability, k=2)
 
+        # Tornament selection
+        # parent1 = tournament_selection(population, population_fitness, k=5)
+        # parent2 = tournament_selection(population, population_fitness, k=5)
+
         # child1 = order_crossover(parent1, parent2)
         child1 = order_crossover(parent1, parent1)
 
+        # Mutation
         child1 = mutate(child1, MUTATION_PROBABILITY)
 
         new_population.append(child1)

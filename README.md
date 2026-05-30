@@ -74,3 +74,4 @@ In [tsp.py](tsp.py):
 
 ## Resources
 From FIAP
+https://github.com/FIAP/genetic_algorithm_tsp
